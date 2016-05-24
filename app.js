@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 
 	// ejs render automatically looks in the views folder
   /*res.send('Mi Api');*/
-	res.render('index');
+	//res.render('index');
 });
 /*Artistas*/
 app.get('/Artists',function(req, res){
