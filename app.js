@@ -15,7 +15,7 @@ var port = process.env.PORT || 5000;
 app.get('/', function(req, res) {
 
 	// ejs render automatically looks in the views folder
-  /*res.send('Mi Api');*/
+  res.send('Mi Api');
 	//res.render('index');
 });
 /*Artistas*/
