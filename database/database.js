@@ -1,4 +1,4 @@
-var pg =require ('pg');
+var pg = require ('pg');
 //Cadena de conexion
 var connectionString = process.env.DATABASE_URL || 'postgres://postgres:dd197358@localhost:5432/musikDB';
 
@@ -20,6 +20,6 @@ var query = pgClient.query('ALTER TABLE Artists ADD CONSTRAINT CH_1 CHECK (artis
 var query = pgClient.query('ALTER TABLE Albums ADD CONSTRAINT CH_1 CHECK (album_rating>=0 AND album_rating<=100);');
 var query = pgClient.query('ALTER TABLE Songs ADD CONSTRAINT CH_1 CHECK (song_rating>=0 AND song_rating<=100);');
 
-query. on('end', function(){
+query.on('end', function(){
   pgClient.end();
 });
