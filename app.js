@@ -254,6 +254,6 @@ app.post('/Songs',function(req, res){
 
 
 var server = app.listen(port, function(){
-  var port = server.address().port;
-  console.log('Api en ejecuccion', port);
+  //var port = server.address().port;
+  console.log('Api en ejecucion', port);
 });
