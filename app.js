@@ -57,11 +57,11 @@ app.get('/Artists',function(req, res){
 
 app.post('/Artists',function(req, res){
   var Artists = {
-    "artist_id": 2589215,
-    "artist_name": "Gloria",
-    "artist_last_name": "Trevi",
-    "artist_genre": "Pop",
-    "artist_rating": 75
+    "artist_id": 294587,
+    "artist_name": "Axel",
+    "artist_last_name": "Rose",
+    "artist_genre": "Rock",
+    "artist_rating": 64
   };
   pg.connect(connectionString, function(error, client, done){
     //manejo de errores de conexion
