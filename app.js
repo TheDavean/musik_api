@@ -81,7 +81,6 @@ app.get('/Artists',function(req, res){
 
 app.post('/Artists',function(req, res){
   var Artists = {
-    "artist_id": req.body.artist_id,
     "artist_name": req.body.artist_name,
     "artist_last_name": req.body.artist_last_name,
     "artist_genre": req.body.artist_genre,
@@ -95,7 +94,7 @@ app.post('/Artists',function(req, res){
       res.status(500).json({"success" : false, "message": error});
     }
 
-    var query = client.query('INSERT INTO Artists (artist_id, artist_name, artist_last_name, artist_genre, artist_rating) values($1, $2, $3 ,$4, $5)', [Artists.artist_id, Artists.artist_name, Artists.artist_last_name,Artists.artist_genre,Artists.artist_rating]);
+    var query = client.query('INSERT INTO Artists (artist_name, artist_last_name, artist_genre, artist_rating) values($1, $2, $3 ,$4)', [Artists.artist_name, Artists.artist_last_name,Artists.artist_genre,Artists.artist_rating]);
 
     query.on('end', function(){
       done();
@@ -159,7 +158,6 @@ app.get('/Albums',function(req, res){
 
 app.post('/Albums',function(req, res){
   var Albums = {
-    "album_id": req.body.album_id,
     "album_name": req.body.album_name,
     "album_rating": req.body.album_rating,
     "album_record_label": req.body.album_record_label,
@@ -173,7 +171,7 @@ app.post('/Albums',function(req, res){
       res.status(500).json({"success" : false, "message": error});
     }
 
-    var query = client.query('INSERT INTO Albums (artist_id, album_id, album_name, album_rating, album_record_label) values($1, $2, $3 ,$4, $5)', [Albums.artist_id,Albums.album_id,Albums.album_name,Albums.album_rating, Albums.album_record_label]);
+    var query = client.query('INSERT INTO Albums (artist_id, album_name, album_rating, album_record_label) values($1, $2, $3 ,$4)', [Albums.artist_id,Albums.album_name,Albums.album_rating, Albums.album_record_label]);
 
     query.on('end', function(){
       done();
@@ -269,7 +267,39 @@ app.post('/Songs',function(req, res){
   });
 });
 
-
+// app.delete('/Songs',function(req, res){
+//   var Songs = {
+//     "album_id": req.body.album_id,
+//     "song_name": req.body.song_name,
+//     "song_rating": req.body.song_rating,
+//     "song_duration": req.body.song_duration,
+//     "song_advisory": req.body.song_advisory
+//   };
+//   //
+//   // pg.connect(connectionString, function(error, client, done){
+//   //   if(Songs.album_id <= 0 ){
+//   //     done();
+//   //     console.log(error);
+//   //     res.status(400).json({"success" : false, "message": Introdujo valor nulo o 0 a Songs_album_id})
+//   //   }
+//   // });
+//
+//   pg.connect(connectionString, function(error, client, done){
+//     //manejo de errores de conexion
+//     if(error){
+//       done();
+//       console.log(error);
+//       res.status(500).json({"success" : false, "message": error});
+//     }
+//
+//     var query = client.query('INSERT INTO Songs (album_id, song_name, song_rating, song_duration, song_advisory) values($1, $2, $3 ,$4, $5)', [Songs.album_id, Songs.song_name, Songs.song_rating, Songs.song_duration, Songs.song_advisory]);
+//
+//     query.on('end', function(){
+//       done();
+//       res.status(201).json(Songs);
+//     });
+//   });
+// });
 
 var server = app.listen(port, function(){
   //var port = server.address().port;
