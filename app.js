@@ -132,30 +132,30 @@ app.get('/Albums',function(req, res){
   });
 });
 
-app.post('/Albums',function(req, res){
-  var Albums = {
-    "album_id": 46549,
-    "album_name": "Grace",
-    "album_rating": 85,
-    "album_record_label": "Jhonson",
-    "artist_id": 226594
-  };
-  pg.connect(connectionString, function(error, client, done){
-    //manejo de errores de conexion
-    if(error){
-      done();
-      console.log(error);
-      res.status(500).json({"success" : false, "message": error});
-    }
-
-    var query = client.query('INSERT INTO Albums (artist_id, album_id, album_name, album_rating, album_record_label) values($1, $2, $3 ,$4, $5)', [Albums.artist_id,Albums.album_id,Albums.album_name,Albums.album_rating, Albums.album_record_label]);
-
-    query.on('end', function(){
-      done();
-      res.status(201).json(Albums);
-    });
-  });
-});
+// app.post('/Albums',function(req, res){
+//   var Albums = {
+//     "album_id": 46549,
+//     "album_name": "Grace",
+//     "album_rating": 85,
+//     "album_record_label": "Jhonson",
+//     "artist_id": 226594
+//   };
+//   pg.connect(connectionString, function(error, client, done){
+//     //manejo de errores de conexion
+//     if(error){
+//       done();
+//       console.log(error);
+//       res.status(500).json({"success" : false, "message": error});
+//     }
+//
+//     var query = client.query('INSERT INTO Albums (artist_id, album_id, album_name, album_rating, album_record_label) values($1, $2, $3 ,$4, $5)', [Albums.artist_id,Albums.album_id,Albums.album_name,Albums.album_rating, Albums.album_record_label]);
+//
+//     query.on('end', function(){
+//       done();
+//       res.status(201).json(Albums);
+//     });
+//   });
+// });
 
 app.post('/Albums',function(req, res){
   var Albums = {
@@ -210,30 +210,30 @@ app.get('/Songs',function(req, res){
   });
 });
 
-app.post('/Songs',function(req, res){
-  var Songs = {
-    "album_id": 46549,
-    "song_name": "Perfect Love",
-    "song_rating": 80,
-    "song_duration": 7,
-    "song_advisory": "None"
-  };
-  pg.connect(connectionString, function(error, client, done){
-    //manejo de errores de conexion
-    if(error){
-      done();
-      console.log(error);
-      res.status(500).json({"success" : false, "message": error});
-    }
-
-    var query = client.query('INSERT INTO Songs (album_id, song_name, song_rating, song_duration, song_advisory) values($1, $2, $3 ,$4, $5)', [Songs.album_id, Songs.song_name, Songs.song_rating, Songs.song_duration, Songs.song_advisory]);
-
-    query.on('end', function(){
-      done();
-      res.status(201).json(Songs);
-    });
-  });
-});
+// app.post('/Songs',function(req, res){
+//   var Songs = {
+//     "album_id": 46549,
+//     "song_name": "Perfect Love",
+//     "song_rating": 80,
+//     "song_duration": 7,
+//     "song_advisory": "None"
+//   };
+//   pg.connect(connectionString, function(error, client, done){
+//     //manejo de errores de conexion
+//     if(error){
+//       done();
+//       console.log(error);
+//       res.status(500).json({"success" : false, "message": error});
+//     }
+//
+//     var query = client.query('INSERT INTO Songs (album_id, song_name, song_rating, song_duration, song_advisory) values($1, $2, $3 ,$4, $5)', [Songs.album_id, Songs.song_name, Songs.song_rating, Songs.song_duration, Songs.song_advisory]);
+//
+//     query.on('end', function(){
+//       done();
+//       res.status(201).json(Songs);
+//     });
+//   });
+// });
 
 app.post('/Songs',function(req, res){
   var Songs = {
