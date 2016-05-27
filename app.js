@@ -9,11 +9,11 @@ var connectionString = process.env.DATABASE_URL || 'postgres://postgres:dd197358
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
+app.all('/', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
-});
+ });
 
 //Puerto del servidor
 var port = process.env.PORT || 5000;
