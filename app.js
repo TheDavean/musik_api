@@ -54,30 +54,30 @@ app.get('/Artists',function(req, res){
   });
 });
 
-app.post('/Artists',function(req, res){
-  var Artists = {
-    "artist_id": 294587,
-    "artist_name": "Axel",
-    "artist_last_name": "Rose",
-    "artist_genre": "Rock",
-    "artist_rating": 64
-  };
-  pg.connect(connectionString, function(error, client, done){
-    //manejo de errores de conexion
-    if(error){
-      done();
-      console.log(error);
-      res.status(500).json({"success" : false, "message": error});
-    }
-
-    var query = client.query('INSERT INTO Artists (artist_id, artist_name, artist_last_name, artist_genre, artist_rating) values($1, $2, $3 ,$4, $5)', [Artists.artist_id, Artists.artist_name, Artists.artist_last_name,Artists.artist_genre,Artists.artist_rating]);
-
-    query.on('end', function(){
-      done();
-      res.status(201).json(Artists);
-    });
-  });
-});
+// app.post('/Artists',function(req, res){
+//   var Artists = {
+//     "artist_id": 258462,
+//     "artist_name": "Andrei",
+//     "artist_last_name": "Helo",
+//     "artist_genre": "Trance",
+//     "artist_rating": 89
+//   };
+//   pg.connect(connectionString, function(error, client, done){
+//     //manejo de errores de conexion
+//     if(error){
+//       done();
+//       console.log(error);
+//       res.status(500).json({"success" : false, "message": error});
+//     }
+//
+//     var query = client.query('INSERT INTO Artists (artist_id, artist_name, artist_last_name, artist_genre, artist_rating) values($1, $2, $3 ,$4, $5)', [Artists.artist_id, Artists.artist_name, Artists.artist_last_name,Artists.artist_genre,Artists.artist_rating]);
+//
+//     query.on('end', function(){
+//       done();
+//       res.status(201).json(Artists);
+//     });
+//   });
+// });
 
 app.post('/Artists',function(req, res){
   var Artists = {
