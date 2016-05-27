@@ -243,6 +243,9 @@ app.post('/Songs',function(req, res){
     "song_duration": req.body.song_duration,
     "song_advisory": req.body.song_advisory
   };
+
+  
+
   pg.connect(connectionString, function(error, client, done){
     //manejo de errores de conexion
     if(error){
