@@ -243,14 +243,14 @@ app.post('/Songs',function(req, res){
     "song_duration": req.body.song_duration,
     "song_advisory": req.body.song_advisory
   };
-
-  pg.connect(connectionString, function(error, client, done){
-    if(isNan(Songs.album_id)){
-      done();
-      console.log(error);
-      res.status(400).json({"success" : false, "message": Introdujo valor nulo o 0 a Songs_album_id})
-    }
-  });
+  //
+  // pg.connect(connectionString, function(error, client, done){
+  //   if(Songs.album_id <= 0 ){
+  //     done();
+  //     console.log(error);
+  //     res.status(400).json({"success" : false, "message": Introdujo valor nulo o 0 a Songs_album_id})
+  //   }
+  // });
 
   pg.connect(connectionString, function(error, client, done){
     //manejo de errores de conexion
